@@ -32,6 +32,132 @@ Polls is a simple API allowing consumers to view polls and vote in them.
                 ]
             }
         ]
+        
+## CVC [/qa/orders/13055]
+
+### CVC [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "orders": [
+            {
+            "id": 13055,
+            "reservations": [
+                {
+                    "id": 195391418,
+                    "reservationDate": "2017-02-13T17:08:19.000-02:00",
+                    "expiresDate": "2017-02-13T17:28:19.000-02:00",
+                    "isProductTypePackage": false,
+                    "status": "ACTIVATED",
+                    "type": "TOUR",
+                    "packageGroup": "TERRESTRE",
+                    "vendorId": null,
+                    "branchId": 1003,
+                    "agencyId": "LIV",
+                    "emitterId": null,
+                    "salesType": null,
+                    "paxs": [
+                        {
+                            "id": 1,
+                            "firstName": "Joao",
+                            "lastName": "Silva",
+                            "birthDate": "1980-01-01",
+                            "gender": "M",
+                            "notes": null,
+                            "email": null,
+                            "address": [
+                                {
+                                    "street": null,
+                                    "number": null,
+                                    "complement": null,
+                                    "district": null,
+                                    "city": null,
+                                    "state": null,
+                                    "country": null,
+                                    "zipCode": null
+                                }
+                            ]
+                        }
+                    ],
+                    "products": {
+                        "cars": [
+                            {
+                                "meta": {
+                                    "category": "CARRO ECONÔMICO ",
+                                    "code": "10756707-1",
+                                    "description": "ECAR - CARRO ECONÔMICO  - 2",
+                                    "updateAvailable": "false"
+                                },
+                                "item": {
+                                    "category": {
+                                        "name": "CARRO ECONÔMICO "
+                                    },
+                                    "channelManager": {
+                                        "id": null,
+                                        "description": "SABRE",
+                                        "reservationCode": "TESTE",
+                                        "price": null,
+                                        "currency": "R$"
+                                    },
+                                    "player": {
+                                        "id": "SABRE",
+                                        "description": "SABRE"
+                                    },
+                                    "pickup":{
+                                        "name":"MIAMI INTERNTNL",
+                                        "id":43244,
+                                        "date":"2017-09-03T11:00",
+                                        "location":{
+                                            "address":"Containing Address, City, Estate and Country",
+                                            "coordinates":{
+                                                "latitude":"-2.54983213",
+                                                "longitude":"-2.5478745"
+                                            }  
+                                        }
+                                     },
+                                    "return":{
+                                        "name":"MIAMI INTERNTNL",
+                                        "id":43244,
+                                        "date":"2017-09-13T11:00",
+                                        "location":{
+                                            "address":"Containing Address, City, Estate and Country",
+                                            "coordinates":{
+                                                "latitude":"-2.54983213",
+                                                "longitude":"-2.5478745"
+                                            }  
+                                        }
+                                     },
+                                    "price": 362.88,
+                                    "currency": "BRL",
+                                    "paxId": 1,
+                                    "reservationToken": null,
+                                    "optionalServices": [
+                                        {
+                                            "description": null
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "price": {
+                        "total": 362.88,
+                        "discount": 0,
+                        "charges": 0,
+                        "paid": 362.88,
+                        "points": 0,
+                        "cpp": 33.444817,
+                        "currency": "PTS"
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+        ]
 
 ### Create a New Question [POST]
 
