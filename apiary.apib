@@ -1,206 +1,138 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://apis.compasso.com.br/api/v1/
 
-# Polls API
+# Compasso API
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Questions Collection [/questions]
+## Group Customers
 
-### List All Questions [GET]
+### Customer [/customers/{id}/]
 
-+ Response 200 (application/json)
+#### Query Customer [GET]
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "SOA",
-                        "votes": 2048
-                    }, {
-                        "choice": "JAVA",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-        
-## CVC [/qa/orders/13055]
++ Parameters
 
-### CVC [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "orders": [
-            {
-            "id": 13055,
-            "reservations": [
-                {
-                    "id": 195391418,
-                    "reservationDate": "2017-02-13T17:08:19.000-02:00",
-                    "expiresDate": "2017-02-13T17:28:19.000-02:00",
-                    "isProductTypePackage": false,
-                    "status": "ACTIVATED",
-                    "type": "TOUR",
-                    "packageGroup": "TERRESTRE",
-                    "vendorId": null,
-                    "branchId": 1003,
-                    "agencyId": "LIV",
-                    "emitterId": null,
-                    "salesType": null,
-                    "paxs": [
-                        {
-                            "id": 1,
-                            "firstName": "Joao",
-                            "lastName": "Silva",
-                            "birthDate": "1980-01-01",
-                            "gender": "M",
-                            "notes": null,
-                            "email": null,
-                            "address": [
-                                {
-                                    "street": null,
-                                    "number": null,
-                                    "complement": null,
-                                    "district": null,
-                                    "city": null,
-                                    "state": null,
-                                    "country": null,
-                                    "zipCode": null
-                                }
-                            ]
-                        }
-                    ],
-                    "products": {
-                        "cars": [
-                            {
-                                "meta": {
-                                    "category": "CARRO ECONÔMICO ",
-                                    "code": "10756707-1",
-                                    "description": "ECAR - CARRO ECONÔMICO  - 2",
-                                    "updateAvailable": "false"
-                                },
-                                "item": {
-                                    "category": {
-                                        "name": "CARRO ECONÔMICO "
-                                    },
-                                    "channelManager": {
-                                        "id": null,
-                                        "description": "SABRE",
-                                        "reservationCode": "TESTE",
-                                        "price": null,
-                                        "currency": "R$"
-                                    },
-                                    "player": {
-                                        "id": "SABRE",
-                                        "description": "SABRE"
-                                    },
-                                    "pickup":{
-                                        "name":"MIAMI INTERNTNL",
-                                        "id":43244,
-                                        "date":"2017-09-03T11:00",
-                                        "location":{
-                                            "address":"Containing Address, City, Estate and Country",
-                                            "coordinates":{
-                                                "latitude":"-2.54983213",
-                                                "longitude":"-2.5478745"
-                                            }  
-                                        }
-                                     },
-                                    "return":{
-                                        "name":"MIAMI INTERNTNL",
-                                        "id":43244,
-                                        "date":"2017-09-13T11:00",
-                                        "location":{
-                                            "address":"Containing Address, City, Estate and Country",
-                                            "coordinates":{
-                                                "latitude":"-2.54983213",
-                                                "longitude":"-2.5478745"
-                                            }  
-                                        }
-                                     },
-                                    "price": 362.88,
-                                    "currency": "BRL",
-                                    "paxId": 1,
-                                    "reservationToken": null,
-                                    "optionalServices": [
-                                        {
-                                            "description": null
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    },
-                    "price": {
-                        "total": 362.88,
-                        "discount": 0,
-                        "charges": 0,
-                        "paid": 362.88,
-                        "points": 0,
-                        "cpp": 33.444817,
-                        "currency": "PTS"
-                    }
-                }
-            ]
-        }
-    ]
-}
-
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
+    + id: `1234567890` (string) - The customer id.
+    
++ Request
 
     + Headers
 
-            Location: /questions/2
+            Authorization: Bearer iapsdPdpsadpPdpadsnf
+            
++ Response 200 (application/json)
 
+     + Body
+     
+            {
+                "id":"1234567890",
+                "fullName": "João da Silva",
+                "gender": "male",
+                "email": "joao.silva@mycompany.com",
+                "birthDate": "1992-12-30",
+                "addresses": {
+                    "id": "12345",
+                    "primary": true,
+                    "street": "Julio de Castilhos",
+                    "buildingNumber": "123",
+                    "complement": "7° Andar",
+                    "neighborhood": "Sul",
+                    "city": "Porto Alegre",
+                    "state": "RS",
+                    "postalCode": "00000000",
+                    "country": "BR"
+                },
+                "phones": [{
+                        "id": "123456",]
+                        "primary": true,
+                        "countryCode": "mobile",
+                        "areaCode": "11",
+                        "number": "994470532"
+                    },
+                    {
+                        "id": "123456",
+                        "primary": false,
+                        "countryCode": "home",
+                        "areaCode": "11",
+                        "number": "21211111"
+                    }
+                ]
+            }
+
++ Response 500 (application/json)
+
+    Unexpected error.
+    
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+                "errorCode": "999",
+                "errorMessage": "Error description"
+            }
+            
++ Response 400 (application/json)
+
+    Bad Request.
+    
+    + Body
+
+            {
+                "errorCode": "999",
+                "errorMessage": "Error description"
+            }
+            
++ Response 401 (application/json)
+
+    Unauthorized.
+    
+    + Body
+
+            {
+                "errorCode": "999",
+                "errorMessage": "Error description"
+            }
+            
+### Order [/orders/]
+
+#### Create Order [POST]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer iapsdPdpsadpPdpadsnf
+            
+    + Body
+    
+            {
+                  "id": "1234567890",
+                  "submittedDate": null,
+                  "status": "ok",
+                  "site": "compasso",
+                  "type": "DEFAULT",
+                  "customerId": "123123123",
+                  "subtotalPrice": 100,
+                  "shippingPrice": 15,
+                  "totalDiscounts": 1,
+                  "totalPrice": 116
+            }
+    
++ Response 201 (application/json)
+    
+    + Body
+
+            {
+                "transactionId": "987654321"
+            }
+   
++ Response 500 (application/json)
+
+    Unexpected error.
+    
+    + Body
+
+            {
+                "errorCode": "999",
+                "errorMessage": "Error description"
             }
